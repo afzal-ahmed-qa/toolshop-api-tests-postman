@@ -31,7 +31,8 @@ The folders run in order and pass IDs and tokens along, so each one reads like a
 7. **Search terms (data-driven).** One request repeated for every row in `data/search-terms.csv`.
 
 Every request also gets two collection-level checks: response time under 3 seconds and a JSON
-content type.
+content type. A full run is 77 requests and about 260 assertions and takes around a minute in CI;
+the data-driven run adds six search terms.
 
 ## What I found
 
