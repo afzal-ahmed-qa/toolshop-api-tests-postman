@@ -1,0 +1,16 @@
+{
+  "name": "toolshop-api-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Postman collection and Newman runs for the Practice Software Testing Toolshop API",
+  "scripts": {
+    "test": "newman run collections/toolshop.postman_collection.json -e environments/toolshop.postman_environment.json --timeout-request 20000 --delay-request 300 --folder \"00 Warm-up\" --folder \"01 Catalogue (no login)\" --folder \"02 Login and tokens\" --folder \"03 Account lifecycle\" --folder \"04 Cart and checkout\" --folder \"05 Access control\" --folder \"06 Known issues\" -r cli,htmlextra --reporter-htmlextra-export reports/index.html --reporter-htmlextra-title \"Toolshop API tests\"",
+    "test:data": "newman run collections/toolshop.postman_collection.json -e environments/toolshop.postman_environment.json --timeout-request 20000 --delay-request 300 --folder \"07 Search terms (data-driven)\" -d data/search-terms.csv -r cli,htmlextra --reporter-htmlextra-export reports/data-driven.html --reporter-htmlextra-title \"Toolshop: search terms (data-driven)\""
+  },
+  "author": "Afzal Ahmed",
+  "license": "MIT",
+  "devDependencies": {
+    "newman": "^6.2.1",
+    "newman-reporter-htmlextra": "^1.23.1"
+  }
+}
